@@ -4,13 +4,19 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Button
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.modifier.modifierLocalOf
 import androidx.compose.ui.tooling.preview.Preview
+import appNavController.Stopwatch
 import com.example.timer.ui.theme.TimerTheme
 
 class MainActivity : ComponentActivity() {
@@ -20,10 +26,10 @@ class MainActivity : ComponentActivity() {
         setContent {
             TimerTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
+                    starting(
                         modifier = Modifier.padding(innerPadding)
                     )
+                    toStopWatch {  }
                 }
             }
         }
@@ -31,17 +37,17 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
+fun starting(modifier: Modifier = Modifier) {
     Text(
-        text = "Hello $name!",
+        text = "Timer",
         modifier = modifier
+            .fillMaxWidth()
     )
 }
 
-@Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
-    TimerTheme {
-        Greeting("Android")
+fun toStopWatch(onClick: () -> Unit) {
+    Button(onClick = { composable<Stopwatch> }) {
+        Text(text = "toStopWatch")
     }
 }
