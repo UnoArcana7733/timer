@@ -4,19 +4,16 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.Box
 import androidx.compose.material3.Button
-import androidx.compose.material3.Icon
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.modifier.modifierLocalOf
-import androidx.compose.ui.tooling.preview.Preview
-import appNavController.Stopwatch
+import androidx.compose.ui.graphics.Color
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
+import com.example.timer.feature.AppNavGraph
+import com.example.timer.feature.Stopwatchx
+import com.example.timer.feature.Timerx
 import com.example.timer.ui.theme.TimerTheme
 
 class MainActivity : ComponentActivity() {
@@ -25,29 +22,33 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             TimerTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    starting(
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                    toStopWatch {  }
-                }
+                    val navController = rememberNavController()
+                    AppNavGraph(navController)
             }
         }
     }
 }
 
 @Composable
-fun starting(modifier: Modifier = Modifier) {
-    Text(
-        text = "Timer",
-        modifier = modifier
-            .fillMaxWidth()
-    )
+fun TimerxScreen(navController: NavController) {
+    Box {
+        Button(onClick={navController.navigate(Stopwatchx)}) {Text(text="<- 스톱워치")}
+        Text("타이머", color=Color(0xFF0000FF))
+    }
 }
 
 @Composable
-fun toStopWatch(onClick: () -> Unit) {
-    Button(onClick = { composable<Stopwatch> }) {
-        Text(text = "toStopWatch")
+fun StandardScreen(navController: NavController) {
+    Box() {
+        Button(onClick={navController.navigate(Stopwatchx)}) {Text(text="시작")}
+        Text("기본", color=Color(0xFF0000FF))
+    }
+}
+
+@Composable
+fun StopwatchxScreen(navController: NavController) {
+    Box {
+        Button(onClick={navController.navigate(Timerx)}) {Text(text="타이머 ->")}
+        Text("스톱워치", color=Color(0xFF0000FF))
     }
 }
