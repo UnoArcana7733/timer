@@ -4,9 +4,8 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.timer.StandardScreen
-import com.example.timer.StopwatchxScreen
-import com.example.timer.TimerxScreen
+import kotlinx.serialization.Serializable
+
 
 @Composable
 fun AppNavGraph(
@@ -27,3 +26,11 @@ fun AppNavGraph(
         }
     }
 }
+@kotlinx.serialization.Serializable
+object Standard
+
+@kotlinx.serialization.Serializable
+object Timerx
+
+@Serializable
+object Stopwatchx
