@@ -55,11 +55,9 @@ fun StopwatchxScreen(navController: NavController) {
                     fontWeight = FontWeight.Bold,
                 )
             }
-            Column(modifier = Modifier.padding(121.dp, 339.dp, 121.dp, 458.dp)) {
-                Box {
+            Box(modifier = Modifier.size(170.dp, 60.dp)) {
                     Button(
                         onClick = {},
-                        modifier = Modifier.size(170.dp, 60.dp),
                         colors = ButtonDefaults.buttonColors(
                             contentColor = Color.White,
                             containerColor = Color.Red
@@ -73,7 +71,6 @@ fun StopwatchxScreen(navController: NavController) {
                     }
                 }
             }
-        }
         Row(
             modifier = Modifier.padding(26.dp, 831.dp, 26.dp, 26.dp),
             horizontalArrangement = Arrangement.spacedBy(20.dp)
