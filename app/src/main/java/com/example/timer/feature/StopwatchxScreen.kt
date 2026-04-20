@@ -15,6 +15,7 @@ import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults.topAppBarColors
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
@@ -45,7 +46,7 @@ fun StopwatchxScreen(navController: NavController) {
                 ) { Text(text = "타이머->", color = Color.Gray) }
             }
         }
-        Column(modifier = Modifier.padding(91.dp, 283.dp, 92.dp, 556.dp)) {
+        Column(modifier = Modifier.padding(91.dp, 283.dp, 91.dp, 456.dp)) {
             Box(
                 modifier = Modifier.size(229.dp, 78.dp),
             ) {
@@ -55,22 +56,22 @@ fun StopwatchxScreen(navController: NavController) {
                     fontWeight = FontWeight.Bold,
                 )
             }
-            Box(modifier = Modifier.size(170.dp, 60.dp)) {
-                    Button(
-                        onClick = {},
-                        colors = ButtonDefaults.buttonColors(
-                            contentColor = Color.White,
-                            containerColor = Color.Red
-                        )
-                    ) {
-                        Text(
-                            text = "초기화",
-                            fontSize = 20.sp,
-                            fontWeight = FontWeight.Bold
-                        )
-                    }
+            Box(modifier = Modifier.size(170.dp, 60.dp), contentAlignment = Alignment.Center) {
+                Button(
+                    onClick = {},
+                    colors = ButtonDefaults.buttonColors(
+                        contentColor = Color.White,
+                        containerColor = Color.Red
+                    )
+                ) {
+                    Text(
+                        text = "초기화",
+                        fontSize = 20.sp,
+                        fontWeight = FontWeight.Bold
+                    )
                 }
             }
+        }
         Row(
             modifier = Modifier.padding(26.dp, 831.dp, 26.dp, 26.dp),
             horizontalArrangement = Arrangement.spacedBy(20.dp)
